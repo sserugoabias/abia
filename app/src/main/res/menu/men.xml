@@ -2,6 +2,6 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="menu" android:id="@+id/abias" />
-    <item android:title="media" android:id="@+id/sserugo"/>
+    <item android:title="music" android:id="@+id/abias" />
+    <item android:title="cprogram" android:id="@+id/sserugo"/>
 </menu>
