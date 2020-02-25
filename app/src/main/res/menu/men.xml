@@ -4,4 +4,5 @@
 
     <item android:title="music" android:id="@+id/abias" />
     <item android:title="cprogram" android:id="@+id/sserugo"/>
+    <item android:title="ListView" android:id="@+id/list"/>
 </menu>

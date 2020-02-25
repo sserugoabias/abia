@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.myapplication">
+    package="com.example.abia">
 
     <application
         android:allowBackup="true"
@@ -9,9 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".musicActivity"></activity>
-        <activity android:name=".DisplayMessageActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.abia.recyclerview"></activity>
+
+        <activity android:name="com.example.abia.cprogram" />
+        <activity android:name="com.example.abia.listview" />
+        <activity android:name="com.example.abia.musicActivity" />
+        <activity android:name="com.example.abia.DisplayMessageActivity" />
+        <activity android:name="com.example.abia.MainActivity"/>
+            <activity android:name="com.example.abia.splashscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
