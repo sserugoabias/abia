@@ -1,4 +1,31 @@
 <resources>
     <string name="app_name">abia</string>
     <string name="campaign">Campaign</string>
+
+    <string-array name="team">
+        <item>Liverpool</item>
+        <item>Manchester United</item>
+        <item>Arsenal</item>
+        <item>Chelsea</item>
+        <item>PSG</item>
+        <item>Juventus</item>
+        <item>Barcelona</item>
+        <item>Manchester City</item>
+        <item>Everton</item>
+        <item>Tottenhan Hotspurs</item>
+        <item>Wolves</item>
+        <item>Real Madrid</item>
+        <item>WestHam</item>
+        <item>Cardiff City</item>
+    </string-array>
+    <string-array name="description">
+        <item>this is random description</item>
+        <item>this is random description</item>
+        <item>this is random description</item>
+        <item>this is random description</item>
+        <item>this is random description</item>
+        <item>this is random description</item>
+    </string-array>
+    <string name="title_activity_recyclerview">recyclerview</string>
+    <string name="title_activity_recyclervew">recyclervew</string>
 </resources>
