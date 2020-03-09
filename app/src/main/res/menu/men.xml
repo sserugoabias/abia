@@ -8,5 +8,8 @@
     <item android:title="RecyclerView" android:id="@+id/rec"/>
     <item
         android:id="@+id/broad"
-        android:title="broadcast" />
+        android:title="Email" />
+    <item
+        android:id="@+id/call"
+        android:title="Make a call" />
 </menu>

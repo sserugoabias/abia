@@ -2,14 +2,18 @@ package com.example.abia;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -93,6 +97,24 @@ EditText message=(EditText)findViewById(R.id.message);
                 intent.setType("message/rfc 822");
 
                 startActivity(intent);
+                return true;
+            case R.id.call:
+                try {
+                    //check for call permissions
+                    int permission = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE);
+                    if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CALL_PHONE)) {
+                            Toast.makeText(this, "This is to make a phone call", Toast.LENGTH_LONG).show();
+                        } else {
+                            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 1);
+                        }
+                    }
+                    Intent inte = new Intent(Intent.ACTION_CALL, Uri.parse("tel:0705588912"));
+                    startActivity(inte);
+                }
+                catch (Exception ex){
+                    ex.printStackTrace();
+                }
                 return true;
                // Intent intent2=new Intent(Intent.ACTION_CALL,Uri.);
                // startActivity(intent2);
