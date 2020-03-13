@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity  {
    private BroadcastReceiver myReceiver=new BroadcastReceiver(){
         @Override
     public void onReceive(Context context,Intent intent){
-
+// returning the battery level
             int x= intent.getIntExtra("level",0);
             ProgressBar progressBar=(ProgressBar)findViewById(R.id.progress);
             progressBar.setProgress(x);
@@ -55,9 +57,25 @@ public class MainActivity extends AppCompatActivity  {
         registerReceiver(myReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
 
     }
+    // create an onClick method in your xml
+    public void start(View view){
+        EditText text=(EditText)findViewById(R.id.onc);
+        int i= Integer.parseInt(text.getText().toString());
+        //create the intent and call your broadcast receiver
+        Intent inten=new Intent(this,BroadcastReceiver.class);
+
+        //create a pending intent to be fired when alarm is ready
+        PendingIntent pendingIntent=PendingIntent.getBroadcast(this.getApplicationContext(),0,inten,0);
+        //use the alarm manager class to generate an alarn
+        AlarmManager alarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
+        //Real time clock to be used
+        alarmManager.set(AlarmManager.RTC_WAKEUP,System.currentTimeMillis()+(i *1000),pendingIntent);
+        Toast.makeText(this,"Alarm is in" + i + "seconds",Toast.LENGTH_LONG).show();
+    }
 
 
     public void sendMessage(View view) {
+
 EditText message=(EditText)findViewById(R.id.message);
         Toast.makeText(this,"sending message"+message.getText().toString(),Toast.LENGTH_SHORT).show();
         Intent intent=new Intent(this,DisplayMessageActivity.class);
@@ -121,6 +139,12 @@ EditText message=(EditText)findViewById(R.id.message);
 
             case R.id.list:
                 startActivity(new Intent(this,listview.class));
+                return true;
+            case R.id.vib:
+                startActivity(new Intent(this,Vibration.class));
+                return true;
+            case R.id.cal:
+                startActivity(new Intent(this,Phonebook.class));
                 return true;
 
 
